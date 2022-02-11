@@ -13,10 +13,14 @@ public class StringProc {
         }
 
         //Task 4
-        System.out.println("Length of word \"random\": "+wordCount(array, 1));
+        System.out.println("Length of word \"random\": "+wordCount(array, 18));
     }
 
     private static int wordCount(String[] words, int i) {
+        if(words.length<(i+1)){
+            throw new RuntimeException("invalid index! Your index is "+i+
+                    " However it must be from 0 to " + (words.length-1));
+        }
         return words[i].length();
     }
 }
