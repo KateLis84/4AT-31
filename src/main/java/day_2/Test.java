@@ -1,5 +1,7 @@
 package day_2;
 
+import day_3.exceptions.DivByZero;
+
 public class Test {
     public static void main(String[] args){
         double a = -2.666;
@@ -24,6 +26,11 @@ public class Test {
     }
 
     public static double devide(double a, double b){
+        if(b==0) try {
+            throw new DivByZero("Invalid" + b);
+        } catch (DivByZero e) {
+            e.printStackTrace();
+        }
         return a/b;
     }
 
