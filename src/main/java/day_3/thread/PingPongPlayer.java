@@ -1,28 +1,28 @@
-//package day_3.thread;
-//
-//public class PingPongPlayer extends Thread{
-//    public static String ball;
-//
-//    private String name;
-//
-//    public PingPongPlayer(String name){
-//        this.name=name;
-//    }
-//
-//    public void run(){
-//        for(int i=0; i>10; i++){
-//            if(ball==null){
-//                ball=name;
-//            }
-//            while(!java.util.Objects.equals((ball, name))){
-//                try {
-//                    Thread.sleep(10);
-//                } catch(interrupt){
-//                    e.printStack
-//                )
-//            }
-//            System.out.println(name);
-//            ball = name;
-//        }
-//    }
-//}
+package task.day_3.thread;
+
+public class PingPongPlayer extends Thread {
+
+    final static int[] turnCount=new int[1];
+    final static String[] ball=new String[1];
+
+    public PingPongPlayer(String name) {
+        super(name);
+    }
+
+    public void run() {
+        System.out.println("player " + getName() + " ready");
+        while(turnCount[0]<100){
+            synchronized (ball){
+            turn();}
+        }
+        }
+
+    private void turn() {
+        if(!getName().equals(ball[0])){
+            ball[0]=getName();
+        System.out.println("turn["+turnCount[0]+"] " + ball[0]);
+        turnCount[0]++;}
+    }
+
+
+}
