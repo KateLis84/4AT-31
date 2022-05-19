@@ -1,4 +1,4 @@
-package task.day_3.thread;
+package day_4.thread;
 
 public class Main {
 
