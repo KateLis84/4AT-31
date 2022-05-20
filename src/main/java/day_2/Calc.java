@@ -13,7 +13,7 @@ public class Calc {
         System.out.println("a/b=" + devide(a, b));
     }
 
-    public static double add(double a, double b){
+    public static Double add(double a, double b){
         return a+b;
     }
 
@@ -25,7 +25,7 @@ public class Calc {
         return a*b;
     }
 
-    public static double devide(double a, double b){
+    public static Double devide(double a, double b){
         if(b==0) try {
             throw new DivByZero("Invalid" + b);
         } catch (DivByZero e) {
