@@ -2,7 +2,7 @@ package day_2;
 
 import day_3.exceptions.DivByZero;
 
-public class Test {
+public class Calc {
     public static void main(String[] args){
         double a = -2.666;
         double b = 10;
