@@ -1,0 +1,3 @@
+Task from day 8 located in "src/test/java/itstep_aqa"
+
+Tasks from day 6 and 7 is not here, because I couldn't install mysql :(
