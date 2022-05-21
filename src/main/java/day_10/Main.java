@@ -22,7 +22,7 @@ public class Main {
         System.out.println(generatePaletteButton.getRect().x + " " +generatePaletteButton.getRect().y);
         generatePaletteButton.click();
 
-//        driver.close();
-//        driver.quit();
+        driver.close();
+        driver.quit();
     }
 }
