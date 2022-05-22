@@ -1,21 +1,24 @@
-package day_11;
+package day_12;
 
-import org.openqa.selenium.By;
+import day_11.GeneratePO;
+import day_11.HomePO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class ColorPaletteBO {
+public class ColorPaletteFactoryBO {
     public static WebDriver driver;
-    private HomePO homePO;
+    private static HomeFactoryPO homePO;
     public static void main(String[] args) {
-    }GeneratePO generatePO;
+    }
 
-    public ColorPaletteBO(WebDriver chromeDriver){
+    static GenerateFactoryPO generatePO;
+
+    public ColorPaletteFactoryBO(WebDriver chromeDriver){
         this.driver = chromeDriver;
     }
 
-    public void goToHome() {
-        homePO = new HomePO(driver);
+    public static void goToHome() {
+        homePO = new HomeFactoryPO(driver);
         homePO.goToHome();
     }
 

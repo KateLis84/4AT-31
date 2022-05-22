@@ -1,5 +1,6 @@
-package itstep_aqa.ui.colorpalettePO;
+package itstep_aqa.ui.day_12_factory;
 
+import day_11.ColorPaletteBO;
 import day_12.BaseUITest;
 import day_12.ColorPaletteFactoryBO;
 import org.openqa.selenium.WebDriver;
@@ -12,20 +13,13 @@ public class ColorPalettePO extends BaseUITest {
 
     private ThreadLocal<WebDriver> driver = new InheritableThreadLocal<>();
 
-    @DataProvider(parallel = true)
-    public static Object[][] testDataProvider(){
-        return new Object[][]{
-                {"user_1"},
-                {"user_2"}
-        };
-    }
 
-    @Test(dataProvider = "testDataProvider")
-    void ColorPaletteTest(String userLogin){
+    @Test
+    void ColorPaletteTest(){
 
         driver.set(new ChromeDriver());
 
-        ColorPaletteFactoryBO ColorPaletteBO = new ColorPaletteFactoryBO(driver.get());
+        ColorPaletteBO ColorPaletteBO = new ColorPaletteBO(driver.get());
 
         // Step 1 "Go to website"
         ColorPaletteBO.goToHome();
@@ -38,7 +32,7 @@ public class ColorPalettePO extends BaseUITest {
         ColorPaletteBO.verify();
 
         // Step 4 put Login
-        ColorPaletteBO.putLogin(userLogin);
+        ColorPaletteBO.putLogin("userLogin");
 
 
     }
