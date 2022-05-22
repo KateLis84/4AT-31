@@ -9,8 +9,8 @@ public class HomeFactoryPO {
     @FindBy(xpath = "//*[@id=\"header_nav\"]/ul/li[4]/a")
     private WebElement generateButton;
 
-//    @FindBy(xpath = "//*[@id=\"iubenda-cs-banner\"]/div/div/div/div[3]/div[2]/button")
-//    private WebElement coockies;
+    @FindBy(xpath = "//*[@id='iubenda-cs-banner']/div/div/div/div[3]/div[2]/button")
+    private WebElement coockies;
 
     private WebDriver driver;
     public HomeFactoryPO(WebDriver driver) {
@@ -23,7 +23,7 @@ public class HomeFactoryPO {
     }
 
     public GenerateFactoryPO clickGenerate() {
-        //if(coockies.isDisplayed()){coockies.click();}
+        coockies.click();
         generateButton.click();
         return new GenerateFactoryPO(driver);
     }
