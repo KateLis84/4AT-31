@@ -1,7 +1,7 @@
 package day_12;
 
-import day_11.GeneratePO;
-import day_11.HomePO;
+import day_12.po.GenerateFactoryPO;
+import day_12.po.HomeFactoryPO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -27,7 +27,7 @@ public class ColorPaletteFactoryBO {
     }
 
     public void verify() {
-        Assert.assertTrue(GeneratePO.isOpen());
+        Assert.assertTrue(GenerateFactoryPO.isOpen());
     }
 
     public void putLogin(String userLogin) {

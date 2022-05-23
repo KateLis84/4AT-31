@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 public class ColorPalettePO extends BaseUITest {
 
@@ -23,7 +24,11 @@ public class ColorPalettePO extends BaseUITest {
 
         driver.set(new ChromeDriver());
 
-        ColorPaletteFactoryBO ColorPaletteFactoryBO = new ColorPaletteFactoryBO(driver.get());
+        WebDriver driver = BrowserFactory.getChromedriver();
+        driver.manage().timeouts().implicitlyWait(Duration.of(10, ChronoUnit.SECONDS));
+        ColorPaletteFactoryBO ColorPaletteFactoryBO = new ColorPaletteFactoryBO(
+                driver
+        );
 
 
 
@@ -35,17 +40,17 @@ public class ColorPalettePO extends BaseUITest {
 
 
         // Step 3 "verify"
-        //ColorPaletteFactoryBO.verify();
+        ColorPaletteFactoryBO.verify();
 
         // Step 4 put Login
-        //ColorPaletteFactoryBO.putLogin("userLogin");
+        ColorPaletteFactoryBO.putLogin("userLogin");
 
 
     }
 
-//    @AfterTest
-//    void CloseDriver(){
-//        driver.get().quit();
-//        //driver.quit();
-//    }
+        @AfterTest
+        void CloseDriver(){
+            driver.get().close();
+            driver.get().quit();
+        }
 }
