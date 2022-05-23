@@ -14,6 +14,7 @@ public class AllureTestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
         getScreenshot();
+        getDom();
     }
 
     @Attachment(value = "Page Screen", type="image/png")
@@ -21,6 +22,10 @@ public class AllureTestListener implements ITestListener {
         return ((TakesScreenshot) BrowserFactory.getChromedriver()).getScreenshotAs(OutputType.BYTES);
     }
 
+    @Attachment(value = "{0}", type="text/plain")
+    String getDom(){
+        return BrowserFactory.getChromedriver().getPageSource();
+    }
 
 
     @Override
