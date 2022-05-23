@@ -2,6 +2,7 @@ package day_12;
 
 import day_12.po.GenerateFactoryPO;
 import day_12.po.HomeFactoryPO;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -17,19 +18,23 @@ public class ColorPaletteFactoryBO {
         this.driver = chromeDriver;
     }
 
+    @Step
     public static void goToHome() {
         homePO = new HomeFactoryPO(driver);
         homePO.goToHome();
     }
 
+    @Step
     public void Generateclick() {
         generatePO = homePO.clickGenerate();
     }
 
+    @Step
     public void verify() {
         Assert.assertTrue(GenerateFactoryPO.isOpen());
     }
 
+    @Step
     public void putLogin(String userLogin) {
         generatePO
                 .insertLogin(userLogin)
