@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomeFactoryPO {
 
-    @FindBy(xpath = "//*[@id=\"topMenu\"]/a[3]")
+    @FindBy(xpath = "//*[@id=\"authentication-panel\"]/div/button")
     private MyButtonWE signUpButton;
 
 
@@ -19,7 +19,7 @@ public class HomeFactoryPO {
     }
 
     public void goToHome() {
-        driver.get("https://worldcats.ru/");
+        driver.get("https://www.wattpad.com/login");
     }
 
     public GenerateFactoryPO clickGenerate() {

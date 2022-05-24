@@ -50,7 +50,7 @@ public class ColorPalettePO extends BaseUITest {
         ColorPaletteFactoryBO.verify();
 
         // Step 4 put Login
-        ColorPaletteFactoryBO.putLogin("userLogin");
+        ColorPaletteFactoryBO.putLogin("lvivuralviv@gmail.com", "12022002kate");
 
 
     }

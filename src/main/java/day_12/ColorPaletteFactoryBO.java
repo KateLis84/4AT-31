@@ -35,9 +35,9 @@ public class ColorPaletteFactoryBO {
     }
 
     @Step
-    public void putLogin(String userLogin) {
+    public void putLogin(String userLogin, String password) {
         generatePO
-                .insertLogin(userLogin)
+                .insertLogin(userLogin, password)
                 .clickGenerate();
     }
 }

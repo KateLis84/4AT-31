@@ -9,13 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class GenerateFactoryPO {
 
-    @FindBy(xpath = "//*[@id=\"modal\"]/div/div/div/form/div[1]/h3")
+    @FindBy(xpath = "//*[@id=\"authentication-panel\"]/p")
     private static WebElement textLabel;
 
-    @FindBy(xpath="//*[@id=\"modal\"]/div/div/div/form/div[2]/div[2]/div[1]/input")
+    @FindBy(xpath="//*[@id=\"login-username\"]")
         private MyInputWE loginInput;
 
-    @FindBy(xpath = "//*[@id=\"modal\"]/div/div/div/form/div[2]/div[2]/div[4]/button")
+    @FindBy(xpath = "//*[@id=\"login-password\"]")
+    private MyInputWE passwordInput;
+
+    @FindBy(xpath = "//*[@id=\"signup-form\"]/input")
     private WebElement signUpButton;
 
 
@@ -31,8 +34,9 @@ public class GenerateFactoryPO {
         return textLabel.isDisplayed();
     }
 
-    public GenerateFactoryPO insertLogin(String userLogin) {
+    public GenerateFactoryPO insertLogin(String userLogin, String password) {
         loginInput.input(userLogin);
+        passwordInput.input(password);
         return this;
     }
 
