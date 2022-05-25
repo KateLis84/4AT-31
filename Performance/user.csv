@@ -1,0 +1,5 @@
+login,password,role
+Tester1,123456,reporter
+Tester2,987654321,reporter
+Tester3,тфвшфтфвшф,developer
+Tester4, 123456,developer

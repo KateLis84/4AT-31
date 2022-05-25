@@ -68,7 +68,7 @@ public class CustomTrelloTest {
     }
 
 
-    
+
     @Test(dependsOnMethods = "createBoard")
     public void getBoard() throws URISyntaxException, IOException, InterruptedException {
         String url = String.format("https://api.trello.com/1/boards/%s?key=%s&token=%s", boardID, API_KEY, API_TOKEN);
