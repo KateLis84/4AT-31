@@ -24,6 +24,7 @@ public class SearchPO {
     @FindBy(xpath = "//*[@id=\"component-searchnoresults-search-no-results-stories-%2fsearch%2fqfoj%255depgj\"]/div/div/h4")
     private WebElement notFoundLabel;
 
+    //звернення до драйвера
     @FindBy(xpath = "//*[@id=\"component-storycardcontainer-story-card-container-%2fsearch%2fwarrior%2520cats\"]/div/div[1]/ul/li[1]/a/div[2]/div[2]/div[1]")
     private static WebElement chosenBook;
 

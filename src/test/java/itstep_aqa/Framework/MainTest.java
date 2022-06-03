@@ -162,44 +162,5 @@ public class MainTest extends BaseUITest {
         //driver.quit();
     }
 
-    @Test
-    void apiGetTest(){
-        Response response = RestAssured.get("https://reqres.in/api/users?page=2");
-        System.out.println("Response body: " + response.getBody().asString());
-        Assert.assertEquals(response.getStatusCode(), 200);
 
-    }
-    @Test
-    void apiPostTest(){
-        Response response = given().when().contentType(ContentType.JSON)
-                        .with().body("{\"name\": \"Kate\",\"job\": \"developer\"\n" +"}")
-                        .when().post("https://reqres.in/api/users");
-
-        response.then().assertThat().statusCode(201);
-        System.out.println("Response: " + response.getBody().asString());
-    }
-    @Test
-    void apiPutTest(){
-        Response response = given().when().contentType(ContentType.JSON)
-                .with().body("{\"name\": \"Kate\",\"job\": \"new_job\"\n" +"}")
-                .when().put("https://reqres.in/api/users/2");
-
-        response.then().assertThat().statusCode(200);
-        System.out.println("Response: " + response.getBody().asString());
-    }
-    @Test
-    void apiDeleteTest(){
-        Response response = given().when().contentType(ContentType.JSON)
-                .when().delete("https://reqres.in/api/users/2");
-
-        response.then().assertThat().statusCode(204);
-        System.out.println("Response: " + response.getBody().asString());
-        System.out.println("StatusCose: " + response.getStatusCode());
-    }
-    @Test
-    void apiGetSingleTest(){
-        Response response = RestAssured.get("https://reqres.in/api/users/2");
-        System.out.println("Response body: " + response.getBody().asString());
-        Assert.assertEquals(response.getStatusCode(), 200);
-    }
 }
