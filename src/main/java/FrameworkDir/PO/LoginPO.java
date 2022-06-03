@@ -34,6 +34,9 @@ public class LoginPO {
     @FindBy(xpath = "//*[@id=\"profile-dropdown\"]/div[2]/ul/li[5]/a")
     private WebElement libraryButton;
 
+    @FindBy(xpath = "//*[@id=\"component-home-new-home-landing-%2fhome\"]/div/div[2]/div/div/h2")
+    private WebElement welcomeLabel;
+
 
 
     private static WebDriver driver;
@@ -70,6 +73,10 @@ public class LoginPO {
     public SearchPO Search(){
         searchButton.click();
         return new SearchPO(driver);
+    }
+
+    public boolean checkWelcome(){
+        return welcomeLabel.isDisplayed();
     }
 
     public void inputSearch(String searchWord){

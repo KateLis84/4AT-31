@@ -46,6 +46,7 @@ public class WattpadBO {
         loginPO
                 .insertLogin(userLogin, password)
                 .clickEnter();
+        Assert.assertTrue(loginPO.checkWelcome());
     }
     @Step
     public void search() {
