@@ -2,9 +2,15 @@ package day_12;
 
 import day_12.po.GenerateFactoryPO;
 import day_12.po.HomeFactoryPO;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import java.io.ByteArrayInputStream;
 
 public class ColorPaletteFactoryBO {
     public static WebDriver driver;
@@ -40,4 +46,5 @@ public class ColorPaletteFactoryBO {
                 .insertLogin(userLogin, password)
                 .clickGenerate();
     }
+
 }

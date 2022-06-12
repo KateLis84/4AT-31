@@ -28,6 +28,7 @@ public class LoginPO {
     @FindBy(xpath = "//*[@id=\"search-query\"]")
     private MyInputWE searchField;
 
+
     @FindBy(xpath = "//*[@id=\"profile-dropdown\"]/button")
     private WebElement myProfile;
 

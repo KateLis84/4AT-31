@@ -1,20 +1,16 @@
 package itstep_aqa.Framework;
 
 import FrameworkDir.WattpadBO;
-import com.automation.remarks.testng.UniversalVideoListener;
 import com.automation.remarks.video.annotations.Video;
 import day_12.BaseUITest;
 import day_12.BrowserFactory;
-import day_13.CustomSuiteListener;
-import day_13.CustomTestListener;
+import day_12.day_13.CustomSuiteListener;
+import day_12.day_13.CustomTestListener;
 import day_14.AllureTestListener;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
@@ -37,7 +33,6 @@ public class MainTest extends BaseUITest {
     @Test
     @Video
     void LoginCatlifeTest() {
-        driver.set(new ChromeDriver());
         WebDriver driver = BrowserFactory.getChromedriver();
         driver.manage().timeouts().implicitlyWait(Duration.of(10, ChronoUnit.SECONDS));
         WattpadBO catLifeBO = new WattpadBO(
@@ -52,14 +47,16 @@ public class MainTest extends BaseUITest {
         // Step 3 "verify"
         catLifeBO.verify();
 
-        // Step 4 put Login
+        //Step 4 put Login
         catLifeBO.putLogin("kate_newAT", "12022002kate");
     }
+
     @Test
     void SearchCategoryTest() {
         driver.set(new ChromeDriver());
         WebDriver driver = BrowserFactory.getChromedriver();
         driver.manage().timeouts().implicitlyWait(Duration.of(10, ChronoUnit.SECONDS));
+
         WattpadBO catLifeBO = new WattpadBO(
                 driver
         );
@@ -78,12 +75,14 @@ public class MainTest extends BaseUITest {
         //Step 7 varify search
         catLifeBO.verifyGanre();
     }
+
+
     @DataProvider()
     public static Object[][] SearchDataProvider() {
         return new Object[][]{
                 {"Warrior cats"},
                 {"She-ra"},
-                {"[hgpegwgjdsjicjcnvue"}
+                {"pjfoiejiofje"}
         };
     }
     @Test(dataProvider = "SearchDataProvider")
@@ -97,14 +96,13 @@ public class MainTest extends BaseUITest {
         // Step 2 "Click"
         catLifeBO.loginClick();
         // Step 3 "verify"
-        catLifeBO.verify();
+         catLifeBO.verify();
         // Step 4 put Login
         catLifeBO.putLogin("kate_newAT", "12022002kate");
         //Step 5 Input search word
-        catLifeBO.inputSearch(searchWord);
+        catLifeBO.inputSearch("searchWord");
         //Step 6 click search
         catLifeBO.search();
-
     }
 
     @Test
@@ -156,11 +154,11 @@ public class MainTest extends BaseUITest {
         //Step 10 Delete the Book from library
         catLifeBO.DeleteBook();
     }
-    @AfterTest
-    void CloseDriver(){
-        driver.get().quit();
-        //driver.quit();
-    }
+//    @AfterTest
+//    void CloseDriver(){
+//        driver.get().quit();
+//        //driver.quit();
+//    }
 
 
 }

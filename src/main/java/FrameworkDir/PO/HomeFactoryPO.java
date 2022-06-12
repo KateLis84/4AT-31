@@ -26,6 +26,5 @@ public class HomeFactoryPO {
         signUpButton.myClick();
         return new LoginPO(driver);
     }
+    }
 
-
-}

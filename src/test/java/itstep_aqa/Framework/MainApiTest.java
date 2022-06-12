@@ -1,8 +1,9 @@
 package itstep_aqa.Framework;
 
-import day_13.CustomSuiteListener;
-import day_13.CustomTestListener;
+import day_12.day_13.CustomSuiteListener;
+import day_12.day_13.CustomTestListener;
 import day_14.AllureTestListener;
+import itstep_aqa.Framework.DB.HibernateMain;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -27,19 +28,29 @@ public class MainApiTest {
         apiBO.checkLength(listSize, 0);
     }
 
+
+
+//    @DataProvider()
+//    public static Object[][] newUsers() {
+//        return new Object[][]{
+//                {"{\"name\": \"Kate\", \"LastName\": \"Lias\", \"email\": \"Lias@gmail.com\", \"age\": 20}"},
+//                {"{\"name\": \"Nadia\", \"LastName\": \"Redik\", \"email\": \"red@gmail.com\", \"age\": 20}"},
+//                {"{\"name\": \"Tonik\", \"LastName\": \"Vas\", \"email\": \"they@gmail.com\", \"age\": 18}"},
+//                {"{\"name\": \"Maks\", \"LastName\": \"Chap\", \"email\": \"len@gmail.com\", \"age\": 19}"},
+//                {"{\"name\": \"Error\", \"LastName\": \"ToBeDeleted\", \"email\": \"delete@gmail.com\", \"age\": 0}"},
+//                {"{\"name\": \"M3\", \"LastName\": \"Tr\", \"email\": \"gy@gmail.com\", \"age\": 30}"},
+//        };
+//    }
+
+
     @DataProvider()
     public static Object[][] newUsers() {
-        return new Object[][]{
-                {"{\"name\": \"Kate\", \"LastName\": \"Lias\", \"email\": \"Lias@gmail.com\", \"age\": 20}"},
-                {"{\"name\": \"Nadia\", \"LastName\": \"Redik\", \"email\": \"red@gmail.com\", \"age\": 20}"},
-                {"{\"name\": \"Tonik\", \"LastName\": \"Vas\", \"email\": \"they@gmail.com\", \"age\": 18}"},
-                {"{\"name\": \"Maks\", \"LastName\": \"Chap\", \"email\": \"len@gmail.com\", \"age\": 19}"},
-                {"{\"name\": \"Error\", \"LastName\": \"ToBeDeleted\", \"email\": \"delete@gmail.com\", \"age\": 0}"},
-                {"{\"name\": \"M3\", \"LastName\": \"Tr\", \"email\": \"gy@gmail.com\", \"age\": 30}"},
-        };
+        HibernateMain newData = new HibernateMain();
+        return newData.main();
     }
     @Test(dataProvider = "newUsers")
     void apiAddTest(String newUser){
+        System.out.println("HELOOOOOOOOOOOOOOOOOOOOOOO:  " + newUser);
         //Step 1 get current lrngth
         Integer listSize = apiBO.apiGet("http://localhost:8000/users");
         //Step 2 add user
